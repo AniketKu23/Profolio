@@ -47,14 +47,18 @@ export default function Navbar() {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
-            <Link
+            <a
               key={link.name}
               href={link.href}
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
             >
               {link.name}
               <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-red transition-all duration-300 group-hover:w-full"></span>
-            </Link>
+            </a>
           ))}
           <a
             href="https://drive.google.com/file/d/1Y1tVpJRbbD6ODyv_y3gaMgWpk2rs_T3W/view?usp=sharing"
@@ -92,13 +96,17 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
               >
-                <Link
+                <a
                   href={link.href}
                   className="text-2xl font-display font-medium text-white hover:text-brand-red transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setMobileMenuOpen(false);
+                    document.querySelector(link.href)?.scrollIntoView({ behavior: "smooth" });
+                  }}
                 >
                   {link.name}
-                </Link>
+                </a>
               </motion.div>
             ))}
             <motion.div

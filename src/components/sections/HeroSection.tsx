@@ -57,6 +57,10 @@ export default function HeroSection() {
           <motion.div variants={itemVariants} className="flex flex-wrap items-center gap-6">
             <a
               href="#projects"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+              }}
               className="group relative inline-flex items-center gap-3 px-8 py-4 bg-brand-red text-white font-medium overflow-hidden rounded-full transition-transform hover:scale-105"
             >
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>

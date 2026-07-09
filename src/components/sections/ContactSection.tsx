@@ -8,16 +8,39 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 export default function ContactSection() {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [statusMessage, setStatusMessage] = useState({ text: "", isError: false });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
+    setStatusMessage({ text: "", isError: false });
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setStatusMessage({ text: "Message sent successfully!", isError: false });
       setFormData({ name: "", email: "", message: "" });
-      alert("Message sent successfully!");
-    }, 1500);
+    } catch (error: any) {
+      console.error(error);
+      setStatusMessage({ text: error.message || "Something went wrong.", isError: true });
+    } finally {
+      setIsSubmitting(false);
+      
+      // Clear status message after 5 seconds
+      setTimeout(() => {
+        setStatusMessage({ text: "", isError: false });
+      }, 5000);
+    }
   };
 
   return (
@@ -150,6 +173,12 @@ export default function ContactSection() {
                 {isSubmitting ? "Sending..." : "Send Message"}
                 <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
+              
+              {statusMessage.text && (
+                <p className={`text-sm mt-4 ${statusMessage.isError ? "text-red-500" : "text-green-500"}`}>
+                  {statusMessage.text}
+                </p>
+              )}
             </form>
           </motion.div>
           

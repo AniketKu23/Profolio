@@ -12,7 +12,16 @@ export default function Footer() {
           &copy; {currentYear} Aniket Kumar. All rights reserved.
         </div>
         <div className="flex items-center gap-6 text-sm text-gray-500 font-medium">
-          <a href="#hero" className="hover:text-brand-red transition-colors">Back to Top</a>
+          <a
+            href="#hero"
+            onClick={(e) => {
+              e.preventDefault();
+              document.querySelector("#hero")?.scrollIntoView({ behavior: "smooth" });
+            }}
+            className="hover:text-brand-red transition-colors"
+          >
+            Back to Top
+          </a>
         </div>
       </div>
     </footer>
