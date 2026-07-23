@@ -1,17 +1,9 @@
 import type { Metadata } from "next";
-import { Inter, Space_Grotesk } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/SmoothScroll";
-import CustomCursor from "@/components/CustomCursor";
 
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const jetbrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   display: "swap",
 });
@@ -22,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport = {
-  themeColor: "#050505",
+  themeColor: "#0A0A0A",
 };
 
 export default function RootLayout({
@@ -31,12 +23,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark scroll-smooth`}>
-      <body className="min-h-screen bg-background text-foreground selection:bg-brand-red selection:text-white antialiased overflow-x-hidden">
-        <SmoothScroll>
-          <CustomCursor />
-          {children}
-        </SmoothScroll>
+    <html lang="en" className={`${jetbrainsMono.variable} dark`}>
+      <body className="min-h-screen bg-[#0A0A0A] text-[#4AF626] selection:bg-[#00FF41] selection:text-[#0A0A0A] antialiased overflow-x-hidden font-mono">
+        {children}
       </body>
     </html>
   );
