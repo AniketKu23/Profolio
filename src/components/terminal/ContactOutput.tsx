@@ -52,7 +52,7 @@ export default function ContactOutput() {
 
   return (
     <div className="flex flex-col gap-2 max-w-3xl text-gray-300">
-      <div className="text-[#00FF41] mb-2">$ ./contact.sh</div>
+      <div className="text-[#00FF41] mb-2 font-bold text-glow">$ ./contact.sh</div>
       
       {step === "intro" && (
         <TypewriterText 
@@ -80,7 +80,7 @@ export default function ContactOutput() {
                   value={inputValue}
                   onChange={e => setInputValue(e.target.value)}
                   onKeyDown={handleKeyDown}
-                  className="absolute inset-0 opacity-0 cursor-text outline-none"
+                  className="absolute inset-0 opacity-0 cursor-text outline-none text-[16px]"
                   autoComplete="off"
                 />
               </div>
@@ -104,7 +104,7 @@ export default function ContactOutput() {
                     value={inputValue}
                     onChange={e => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="absolute inset-0 opacity-0 cursor-text outline-none"
+                    className="absolute inset-0 opacity-0 cursor-text outline-none text-[16px]"
                     autoComplete="off"
                   />
                 </div>
@@ -129,7 +129,7 @@ export default function ContactOutput() {
                     value={inputValue}
                     onChange={e => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
-                    className="absolute inset-0 opacity-0 cursor-text outline-none"
+                    className="absolute inset-0 opacity-0 cursor-text outline-none text-[16px]"
                     autoComplete="off"
                   />
                 </div>

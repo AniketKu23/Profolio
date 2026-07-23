@@ -45,13 +45,13 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
       timeoutIds.push(
         setTimeout(() => {
           setLogs((prev) => [...prev, log]);
-        }, delay += (Math.random() * 200 + 100))
+        }, delay += (Math.random() * 80 + 50)) // Much faster delay for <2s total
       );
     });
 
     // Complete
     timeoutIds.push(
-      setTimeout(() => onComplete(), delay += 600)
+      setTimeout(() => onComplete(), delay += 300)
     );
 
     return () => {
@@ -61,7 +61,7 @@ export default function BootSequence({ onComplete }: { onComplete: () => void })
   }, [onComplete]);
 
   return (
-    <div className="min-h-screen p-4 md:p-8 flex flex-col max-w-5xl mx-auto crt-flicker">
+    <div className="min-h-[100dvh] p-4 md:p-8 flex flex-col max-w-5xl mx-auto crt-flicker">
       {showAscii && (
         <pre className="text-[#00FF41] text-xs md:text-sm whitespace-pre-wrap font-mono font-bold text-glow mb-8 overflow-hidden">
           {ASCII_ART}

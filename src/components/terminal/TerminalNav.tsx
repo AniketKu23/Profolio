@@ -20,7 +20,7 @@ export default function TerminalNav({ onCommandClick }: { onCommandClick: (cmd: 
         <button
           key={item}
           onClick={() => onCommandClick(item)}
-          className="group flex items-center text-[#4AF626] hover:text-[#00FF41] hover:text-glow transition-all"
+          className="group flex items-center justify-center min-h-[44px] p-2 -m-2 text-[#4AF626] hover:text-[#00FF41] hover:text-glow transition-all"
         >
           <span className="opacity-0 group-hover:opacity-100 text-[#FFB000] mr-1 transition-opacity">{'>'}</span>
           [{item}]
@@ -30,7 +30,7 @@ export default function TerminalNav({ onCommandClick }: { onCommandClick: (cmd: 
         href="https://drive.google.com/file/d/1Y1tVpJRbbD6ODyv_y3gaMgWpk2rs_T3W/view?usp=sharing"
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex items-center text-[#4AF626] hover:text-[#00FF41] hover:text-glow transition-all ml-auto"
+        className="group flex items-center justify-center min-h-[44px] p-2 -m-2 text-[#4AF626] hover:text-[#00FF41] hover:text-glow transition-all ml-auto"
       >
         <span className="opacity-0 group-hover:opacity-100 text-[#FFB000] mr-1 transition-opacity">{'>'}</span>
         [resume]

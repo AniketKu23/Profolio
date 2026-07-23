@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${jetbrainsMono.variable} dark`}>
-      <body className="min-h-screen bg-[#0A0A0A] text-[#4AF626] selection:bg-[#00FF41] selection:text-[#0A0A0A] antialiased overflow-x-hidden font-mono">
+    <html lang="en" className={`${jetbrainsMono.variable} dark`} suppressHydrationWarning>
+      <body className="min-h-screen bg-[#0A0A0A] text-[#4AF626] selection:bg-[#00FF41] selection:text-[#0A0A0A] antialiased overflow-x-hidden font-mono" suppressHydrationWarning>
         {children}
       </body>
     </html>

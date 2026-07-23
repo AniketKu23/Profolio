@@ -5,6 +5,7 @@ import BootSequence from "./BootSequence";
 import TerminalNav from "./TerminalNav";
 import CommandInput from "./CommandInput";
 import CommandRegistry from "./CommandRegistry";
+import MatrixRain from "./MatrixRain";
 import { portfolioData } from "@/data/portfolio";
 
 export type HistoryEntry = {
@@ -51,8 +52,10 @@ export default function Terminal() {
   }
 
   return (
-    <div className="min-h-screen p-4 md:p-8 flex flex-col max-w-5xl mx-auto crt-flicker">
-      <TerminalNav onCommandClick={handleCommand} />
+    <>
+      <MatrixRain />
+      <div className="min-h-[100dvh] p-4 md:p-8 flex flex-col max-w-5xl mx-auto crt-flicker relative z-10">
+        <TerminalNav onCommandClick={handleCommand} />
       
       <div className="flex-1 mt-6 flex flex-col gap-4 text-sm md:text-base pb-24">
         {/* Welcome message */}
@@ -82,6 +85,7 @@ export default function Terminal() {
         
         <div ref={bottomRef} />
       </div>
-    </div>
+      </div>
+    </>
   );
 }

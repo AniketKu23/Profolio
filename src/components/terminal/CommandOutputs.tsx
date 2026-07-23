@@ -44,7 +44,7 @@ export function AboutOutput() {
           animate="visible"
           className="mt-4 border border-[#33FF66]/30 p-4 max-w-sm"
         >
-          <div className="text-[#00FF41] mb-2 font-bold">$ whoami --stats</div>
+          <div className="text-[#00FF41] mb-2 font-bold text-glow">$ whoami --stats</div>
           {portfolioData.about.stats.map(stat => (
             <motion.div variants={itemVariants} key={stat.label} className="flex justify-between">
               <span>{stat.label}:</span>
@@ -60,7 +60,7 @@ export function AboutOutput() {
 export function ExperienceOutput() {
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-6 max-w-4xl">
-      <div className="text-[#00FF41] mb-2">$ git log --author="Aniket Kumar"</div>
+      <div className="text-[#00FF41] mb-2 font-bold text-glow">$ git log --author="Aniket Kumar"</div>
       
       {portfolioData.experience.map((exp, i) => (
         <motion.div variants={itemVariants} key={i} className="border-l-2 border-[#00FF41]/50 pl-4 py-1">
@@ -85,7 +85,7 @@ export function ExperienceOutput() {
 export function ProjectsOutput() {
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-6 max-w-5xl">
-      <div className="text-[#00FF41] mb-2">$ ls -la ./projects/</div>
+      <div className="text-[#00FF41] mb-2 font-bold text-glow">$ ls -la ./projects/</div>
       
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {portfolioData.projects.map((proj, i) => (
@@ -123,7 +123,7 @@ export function ProjectsOutput() {
 export function SkillsOutput() {
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-2 max-w-3xl text-gray-300">
-      <div className="text-[#00FF41] mb-2">$ tree ./skills</div>
+      <div className="text-[#00FF41] mb-2 font-bold text-glow">$ tree ./skills</div>
       <div className="text-[#00FFFF]">.</div>
       
       {portfolioData.skills.map((group, i) => (
@@ -146,7 +146,7 @@ export function SkillsOutput() {
 export function EducationOutput() {
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-4 max-w-3xl">
-      <div className="text-[#00FF41] mb-2">$ cat ~/education.txt</div>
+      <div className="text-[#00FF41] mb-2 font-bold text-glow">$ cat ~/education.txt</div>
       {portfolioData.education.map((edu, i) => (
         <motion.div variants={itemVariants} key={i} className="flex flex-col border-l-2 border-white/20 pl-4">
           <div className="text-white font-bold">{edu.school}</div>
@@ -161,7 +161,7 @@ export function EducationOutput() {
 export function CertificationsOutput() {
   return (
     <motion.div variants={containerVariants} initial="hidden" animate="visible" className="flex flex-col gap-3 max-w-3xl">
-      <div className="text-[#00FF41] mb-2">$ ls -l ./certifications/</div>
+      <div className="text-[#00FF41] mb-2 font-bold text-glow">$ ls -l ./certifications/</div>
       {portfolioData.certifications.map((cert, i) => (
         <motion.a 
           variants={itemVariants} 
